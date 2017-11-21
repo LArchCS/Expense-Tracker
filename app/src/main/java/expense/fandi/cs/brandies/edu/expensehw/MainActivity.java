@@ -27,16 +27,6 @@ public class MainActivity extends AppCompatActivity {
     ExpenseAdaptor adp;
     ListView mainList;
 
-    protected void notifyChange() {
-        mainList = (ListView) findViewById( R.id.mainList);
-        Cursor newCursor = db.getAllExpenses();
-        int layout = R.layout.expense_entry;
-        String[] from = {EXPENSE, NOTE, TIME};
-        int[] to = {R.id.entryExpense, R.id.entryNote, R.id.entryDate};
-        adp = new ExpenseAdaptor(cxt, layout, newCursor, from, to, 1);
-        mainList.setAdapter(adp); // bind the adapter to mainList
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         mainList = (ListView) findViewById( R.id.mainList);
@@ -75,6 +65,16 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         notifyChange();
+    }
+
+    protected void notifyChange() {
+        mainList = (ListView) findViewById( R.id.mainList);
+        Cursor newCursor = db.getAllExpenses();
+        int layout = R.layout.expense_entry;
+        String[] from = {EXPENSE, NOTE, TIME};
+        int[] to = {R.id.entryExpense, R.id.entryNote, R.id.entryDate};
+        adp = new ExpenseAdaptor(cxt, layout, newCursor, from, to, 1);
+        mainList.setAdapter(adp); // bind the adapter to mainList
     }
 
     public class ExpenseAdaptor extends SimpleCursorAdapter {
