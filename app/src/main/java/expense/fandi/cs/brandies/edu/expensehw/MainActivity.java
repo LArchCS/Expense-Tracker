@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
-import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
