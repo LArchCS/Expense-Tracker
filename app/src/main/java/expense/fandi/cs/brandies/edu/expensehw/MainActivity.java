@@ -1,15 +1,17 @@
 package expense.fandi.cs.brandies.edu.expensehw;
 
+import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.*;
-import android.widget.*;
-import android.content.*;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
         int layout = R.layout.expense_entry;
         String[] from = {EXPENSE, NOTE, TIME};
         int[] to = {R.id.entryExpense, R.id.entryNote, R.id.entryDate};
-        Log.e("From tag  : ", Arrays.toString(from));
-        Log.e("To tag  : ", Arrays.toString(to));
         adp = new ExpenseAdaptor(cxt, layout, newCursor, from, to, 1);
         mainList.setAdapter(adp); // bind the adapter to mainList
     }

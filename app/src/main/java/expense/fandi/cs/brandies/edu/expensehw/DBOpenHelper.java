@@ -1,12 +1,11 @@
 package expense.fandi.cs.brandies.edu.expensehw;
 
+import android.content.ContentValues;
 import android.content.Context;
-import android.content.*;
 import android.database.Cursor;
-import android.database.sqlite.*;
-import android.util.Log;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
-import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -36,13 +35,11 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
     public DBOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        Log.e("Database operation: ", "Database created or opened");
     }
 
     /* Called when no database exists in disk, and the helper class needs to create a new one. */
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(DATABASE_CREATE);
-        Log.e("Database operation: ", "Database created");
     }
 
     /* Called when there is a database version mismatch */
@@ -76,14 +73,12 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         // insert the row into table
         SQLiteDatabase db = getWritableDatabase();
         db.insert(DATABASE_TABLE, null, newValues);
-        Log.e("Database operation: ", "One row inserted");
     }
 
     public void deleteExpense(int expenseId) {
         String where = KEY_ID + " = "  + expenseId;
         SQLiteDatabase db = getWritableDatabase();
         db.delete(DATABASE_TABLE, where, null);
-        Log.e("Database operation: ", "One row deleted");
     }
 
     public void deteleteExpenses() {
@@ -93,7 +88,6 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
     public Cursor getAllExpenses() {
         String[] cols = {KEY_ID, EXPENSE, NOTE, TIME};
-        Log.e("table schema: ", Arrays.toString(cols));
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.query(DATABASE_TABLE, cols, null, null, null, null, null);
         return cursor;

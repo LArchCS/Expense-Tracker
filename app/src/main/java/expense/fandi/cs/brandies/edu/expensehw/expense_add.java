@@ -1,10 +1,11 @@
 package expense.fandi.cs.brandies.edu.expensehw;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.*;
-import android.content.*;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class expense_add extends AppCompatActivity {
     Intent intent;
@@ -17,12 +18,12 @@ public class expense_add extends AppCompatActivity {
         setContentView(R.layout.expense_add);
 
         intent = getIntent();
-        cancel();
-        save();
+        btn_cancel();
+        btn_save();
     }
 
     // if cancel is clicked, do nothing
-    void cancel() {
+    void btn_cancel() {
         Button cancel = (Button)findViewById(R.id.botton_Cancen);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,7 +34,7 @@ public class expense_add extends AppCompatActivity {
     }
 
     // read text from edit text, bind into intent, and set as result from view
-    void save() {
+    void btn_save() {
         Button save  = (Button)findViewById(R.id.button_Save);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
