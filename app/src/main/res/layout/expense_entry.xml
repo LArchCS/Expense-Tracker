@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/entryExpense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/Expense"
+        android:textSize="16sp"></TextView>
+
+    <TextView
+        android:id="@+id/entryNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/entryExpense"
+        android:padding="10dp"
+        android:text="@string/Note"
+        android:textSize="16sp"></TextView>
+
+    <TextView
+        android:id="@+id/entryDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/entryNote"
+        android:padding="10dp"
+        android:text="@string/Date"
+        android:textSize="16sp"></TextView>
+
+    <Button
+        android:id="@+id/entryDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/entryNote"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="DEL" />
+
+
+</RelativeLayout>
